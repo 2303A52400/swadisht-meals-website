@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Swadisht Meals - Authentic homemade tiffin delivery service in Warangal and Nashik">
+    <title>Swadisht Meals - Home-Cooked Tiffin Delivery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b35;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff6b35;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-card {
+            background: #fff8f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card h3 {
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Menu Section */
+        #menu {
+            background-color: #f8f9fa;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .menu-card h3 {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid #f7931e;
+            padding-bottom: 0.5rem;
+        }
+
+        .menu-items {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .menu-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .menu-items li:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            display: block;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        /* Pricing Section */
+        #pricing {
+            background-color: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+            border: 2px solid #ff6b35;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card.featured h3 {
+            color: white;
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin: 1rem 0;
+        }
+
+        .pricing-card.featured .plan-price {
+            color: white;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .plan-features li {
+            padding: 0.5rem 0;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+
+        .contact-link {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #ff6b35;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff6b35;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .menu-grid,
+            .pricing-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-card,
+        .pricing-card,
+        .contact-card,
+        .highlight-card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">🍛 Swadisht Meals</div>
+            <p class="tagline">Ghar Jaisa Swadisht Khana, Seedha Aapke Ghar!</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Serving Warangal & Nashik with Love</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Daily Menu</a></li>
+            <li><a href="#pricing">Pricing Plans</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Swadisht Meals</h2>
+            <div class="about-content">
+                <p>
+                    Welcome to <strong>Swadisht Meals</strong> - your trusted partner for delicious, homemade tiffin delivery! 
+                    We bring the authentic taste of home-cooked Indian meals straight to your doorstep in Warangal and Nashik.
+                </p>
+                <p>
+                    Our mission is to provide wholesome, nutritious, and affordable meals that remind you of home, 
+                    without the hassle of cooking or the high prices of big food delivery apps.
+                </p>
+            </div>
+
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🏠 Homemade Quality</h3>
+                    <p>Fresh ingredients, traditional recipes, cooked with care just like at home</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>💰 Affordable Pricing</h3>
+                    <p>No hidden charges or high commissions - just honest, fair prices</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>⏰ On-Time Delivery</h3>
+                    <p>Punctual delivery ensuring your meals reach you hot and fresh</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🌿 Hygienic & Healthy</h3>
+                    <p>Prepared in clean kitchens following all hygiene standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">Today's Special Menu</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: #666;">
+                <em>Menu changes daily - Fresh, nutritious meals prepared with love</em>
+            </p>
+
+            <div class="menu-grid">
+                <!-- Breakfast Tiffin -->
+                <div class="menu-card">
+                    <h3>🌅 Breakfast Tiffin</h3>
+                    <ul class="menu-items">
+                        <li>2 Parathas (Aloo/Gobi) with Dahi</li>
+                        <li>OR Poha with Sev</li>
+                        <li>OR 3 Idlis with Sambar & Chutney</li>
+                        <li>Pickle & Green Chutney</li>
+                        <li>Chai (Optional)</li>
+                    </ul>
+                    <span class="price">₹50 - ₹80</span>
+                </div>
+
+                <!-- Lunch Tiffin -->
+                <div class="menu-card">
+                    <h3>🌞 Lunch Tiffin</h3>
+                    <ul class="menu-items">
+                        <li>4 Chapatis / 2 Cups Rice</li>
+                        <li>Dal Tadka / Sambar</li>
+                        <li>Seasonal Sabji (Dry)</li>
+                        <li>Curry (Paneer/Mix Veg)</li>
+                        <li>Salad & Pickle</li>
+                        <li>Sweet (Once a week)</li>
+                    </ul>
+                    <span class="price">₹80 - ₹120</span>
+                </div>
+
+                <!-- Dinner Tiffin -->
+                <div class="menu-card">
+                    <h3>🌙 Dinner Tiffin</h3>
+                    <ul class="menu-items">
+                        <li>4 Chapatis / 2 Cups Rice</li>
+                        <li>Dal / Sambar</li>
+                        <li>Sabji (Mixed Vegetables)</li>
+                        <li>Raita / Curd</li>
+                        <li>Salad & Papad</li>
+                    </ul>
+                    <span class="price">₹80 - ₹120</span>
+                </div>
+
+                <!-- Special Thali -->
+                <div class="menu-card">
+                    <h3>✨ Special Thali</h3>
+                    <ul class="menu-items">
+                        <li>5 Chapatis / 3 Cups Rice</li>
+                        <li>Dal Makhani / Sambar</li>
+                        <li>2 Seasonal Sabjis</li>
+                        <li>Paneer Curry</li>
+                        <li>Raita, Salad, Pickle</li>
+                        <li>Sweet Dish</li>
+                    </ul>
+                    <span class="price">₹150 - ₹180</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.1rem; color: #ff6b35; font-weight: 600;">
+                    📞 Call us daily before 10 AM to know today's menu!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title">Subscription Plans</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Choose the plan that fits your needs - Save more with longer subscriptions!
+            </p>
+
+            <div class="pricing-grid">
+                <!-- Trial Plan -->
+                <div class="pricing-card">
+                    <h3>Trial Pack</h3>
+                    <div class="plan-price">₹500</div>
+                    <p style="color: #666; margin-bottom: 1rem;">For 5 Days</p>
+                    <ul class="plan-features">
+                        <li>✓ Lunch OR Dinner</li>
+                        <li>✓ Fresh Daily Meals</li>
+                        <li>✓ Free Home Delivery</li>
+                        <li>✓ Cancel Anytime</li>
+                    </ul>
+                </div>
+
+                <!-- Monthly Plan -->
+                <div class="pricing-card featured">
+                    <h3>Monthly Pack</h3>
+                    <div class="plan-price">₹2,400</div>
+                    <p style="opacity: 0.9; margin-bottom: 1rem;">For 30 Days (Most Popular)</p>
+                    <ul class="plan-features">
+                        <li>✓ Lunch OR Dinner</li>
+                        <li>✓ Daily Fresh Meals</li>
+                        <li>✓ Free Home Delivery</li>
+                        <li>✓ Sunday Special Menu</li>
+                        <li>✓ 2 Meals Can Be Skipped</li>
+                    </ul>
+                </div>
+
+                <!-- Full Meals Plan -->
+                <div class="pricing-card">
+                    <h3>Full Meals Pack</h3>
+                    <div class="plan-price">₹4,200</div>
+                    <p style="color: #666; margin-bottom: 1rem;">For 30 Days</p>
+                    <ul class="plan-features">
+                        <li>✓ Lunch AND Dinner</li>
+                        <li>✓ Daily Fresh Meals</li>
+                        <li>✓ Free Home Delivery</li>
+                        <li>✓ Sunday Special Menu</li>
+                        <li>✓ 4 Meals Can Be Skipped</li>
+                        <li>✓ Best Value for Money</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #fff8f0; border-radius: 10px;">
+                <p style="font-weight: 600; color: #333;">
+                    💡 Custom plans available for offices, hostels, and PG accommodations!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: #666;">
+                We'd love to serve you! Reach out to us through any of these channels
+            </p>
+
+            <div class="contact-grid">
+                <!-- Phone Contact -->
+                <div class="contact-card">
+                    <h3>📱 Phone</h3>
+                    <p class="contact-info">
+                        <strong>Warangal:</strong><br>
+                        <a href="tel:+919876543210" class="contact-link">+91 98765 43210</a>
+                    </p>
+                    <p class="contact-info">
+                        <strong>Nashik:</strong><br>
+                        <a href="tel:+919876543211" class="contact-link">+91 98765 43211</a>
+                    </p>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                        Call between 8 AM - 8 PM
+                    </p>
+                </div>
+
+                <!-- WhatsApp Contact -->
+                <div class="contact-card">
+                    <h3>💬 WhatsApp</h3>
+                    <p class="contact-info">
+                        Quick orders & menu updates
+                    </p>
+                    <p class="contact-info">
+                        <a href="https://wa.me/919876543210" class="contact-link">+91 98765 43210</a>
+                    </p>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                        Message us anytime!
+                    </p>
+                </div>
+
+                <!-- Email Contact -->
+                <div class="contact-card">
+                    <h3>✉️ Email</h3>
+                    <p class="contact-info">
+                        <a href="mailto:info@swadisht-meals.com" class="contact-link">info@swadisht-meals.com</a>
+                    </p>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                        For bulk orders & partnerships
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
+                <h3 style="color: #ff6b35; text-align: center; margin-bottom: 1.5rem;">Delivery Areas</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">📍 Warangal</h4>
+                        <p style="color: #666;">Hanamkonda, Kazipet, Subedari, Nakkalagutta, and surrounding areas</p>
+                    </div>
+                    <div>
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">📍 Nashik</h4>
+                        <p style="color: #666;">Nashik Road, College Road, Gangapur Road, Panchavati, and nearby localities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.2rem; font-weight: 600;">🍛 Swadisht Meals</p>
+            <p>Ghar Jaisa Swadisht Khana, Seedha Aapke Ghar!</p>
+            <p style="margin-top: 1rem;">Serving Warangal & Nashik | No Commission, Just Good Food</p>
+            
+            <div class="social-links">
+                <a href="#" title="Facebook">Facebook</a> |
+                <a href="#" title="Instagram">Instagram</a> |
+                <a href="#" title="WhatsApp">WhatsApp</a>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                &copy; 2024 Swadisht Meals. All rights reserved. | Made with ❤️ for local communities
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
